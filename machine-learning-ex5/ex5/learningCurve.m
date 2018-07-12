@@ -53,6 +53,30 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
+% Use the given function find the paramenter theta
+
+
+for i = 1:m   %Change of number of training examples
+    X_train = X(1:i,:);
+    y_train = y(1:i,:);
+    [theta] = trainLinearReg(X_train,y_train,lambda);
+    
+    % If implementing the equation directly without using
+    % linearRegCostFunction, we should may attent 'm' is no longer the 'm'
+    % in the previous, it should change in each iteration since the number
+    % of train set change in each iteration
+   
+%     error_train(i) =(1/(2*length(y_train)))*(sum((X_train*theta-y_train).^2));
+%     error_val(i) = (1/(2*length(yval)))*(sum((Xval*theta-yval).^2));
+
+
+
+% Use our function linearRegCostFunction is an easier way to find the
+% errors.
+    error_train(i) = linearRegCostFunction(X_train, y_train, theta, 0);
+    error_val(i) = linearRegCostFunction(Xval,yval,theta,0);
+    
+end
 
 
 
