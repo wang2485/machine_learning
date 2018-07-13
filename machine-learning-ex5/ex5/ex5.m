@@ -164,7 +164,7 @@ pause;
 %  lambda to see how the fit and learning curve change.
 %
 
-lambda = 0;
+lambda = 1;
 [theta] = trainLinearReg(X_poly, y, lambda);
 
 % Plot training data and fit
@@ -218,3 +218,41 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+%% ============ Part 9: Plotting learning curves with randomly selected examples (ungraded) =====
+% This is the optinal part which we plot the training error and cross
+% validaion error with different number of training examples. In each
+% number of examples we repeat 50 times. And we do the average value.
+lambda = 0.01;
+avg_train = zeros(12,1);
+avg_val = zeros(12,1);
+for i =1:12  %Randomly select i examples
+
+    for n = 1:50 %Repeat 50 times
+        ind_train = randperm(length(y));
+        ind_val = randperm(length(yval));
+        
+        X_train = X_poly(ind_train(1:i),:);
+        y_train = y(ind_train(1:i),:);
+
+        X_val = X_poly_val(ind_val(1:i),:);
+        y_val = yval(ind_val(1:i),:);
+
+
+        [theta] = trainLinearReg(X_train, y_train, lambda);
+        error_train(n) = linearRegCostFunction(X_train, y_train, theta, 0);
+        error_val(n) = linearRegCostFunction(X_val,y_val,theta,0);
+    end
+
+    avg_train(i) = mean(error_train);
+    avg_val(i) = mean(error_val);
+end
+
+figure()
+plot(1:12, avg_train, 1:12, avg_val);
+legend('Train', 'Cross Validation');
+xlabel('Number of training examples');
+ylabel('Error');
+title('Polynomial Regression Learning Curve (lambda = 0.01)');
+    
+    
+    
