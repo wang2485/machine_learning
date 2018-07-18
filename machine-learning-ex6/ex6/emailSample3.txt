@@ -1,0 +1,26 @@
+Hi all,
+Building on the success of our widely acclaimed first Deep Learning Workshop,
+we are going to try to do this again.
+
+Please put the following times/dates on your calendar:
+August 8, 1:00pm to 5:00pm
+August 9, 1:00pm to 5:00pm
+
+
+We were thinking that this time we might expect participants to have access to:
+For the first days content: An ITaP CPU cluster (i.e., Rice, Brown, or Snyder)
+  For the second days content: An ITaP GPU cluster (i.e., BrownGPU or HalsteadGPU) 
+
+Then the topics we might cover could be:
+1) Basic feedforward CNN architectures
+a) ResNet
+b) U-net
+2) Recurrent NNs
+3) GPU TensorFlow
+4) GANs
+
+Please provide feedback on our suggestions above.
+Also, if YOU want to help, or if you have STUDENTS or POSTDOCS that want to help, then WE NEED HELP!
+
+Thanks
+Charlie
