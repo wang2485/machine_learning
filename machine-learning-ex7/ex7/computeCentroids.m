@@ -26,6 +26,13 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
+for i = 1:K
+    pos = find(idx == i);
+    X_group = X(pos,:);
+    centroids(i,:) = mean(X_group);
+end
+
+
 
 
 
